@@ -1,0 +1,243 @@
+LIBRARY ieee;                                               
+USE ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.mips_pkg.all;
+
+
+
+
+entity MIPS_Multiciclo is
+	port(	clk : in std_logic; 
+	--:= '0';
+			rst: in std_logic:='0';
+			pc_ri: in std_logic_vector (2 downto 0);
+			--wPC, IouD , LeMem, EscreveMem, EscreveIR, RegDst, MemparaReg, OrigAALU, EscreveReg : in std_logic;
+			--OrigBALU, OrigPC : in std_logic_vector(1 downto 0);
+			--OpALU : in std_logic_vector(3 downto 0);  
+			--data_out: out std_logic_vector(31 downto 0);
+			hexari0,hexari1,hexari2,hexari3,hexari4,hexari5,hexari6,hexari7: out std_logic_vector(6 downto 0)
+			--hexa0,hexa1,hexa2,hexa3,hexa4,hexa5,hexa6,hexa7: out std_logic_vector (6 downto 0);
+			--P_C, R_I, ULA_SAI, RDM_TESTE, LEITURA_1, LEITURA_2, DADO_ESCRITA, A_s, B_s : out std_logic_vector(31 downto 0);
+			--R_S, R_T, R_ESC : OUT std_logic_vector(4 downto 0)
+	);
+end entity;
+
+architecture MIPS_Multiciclo_Arch of MIPS_Multiciclo is
+		
+		signal PC_OUT, Memoria_OUT, EntradaRI, Instrucao, RI_OUT, RDM_OUT, Mux_Registrador_para_Escrita_OUT : std_logic_vector(31 downto 0);
+		signal Mux_A_ALU_OUT, Mux_B_ALU_OUT, B_OUT, A_OUT, Mux_Dados_para_Escrita_OUT, Deslocamento_de_2_a_Esquerda_OUT, Deslocamento_de_2_a_Esquerda2_OUT : std_logic_vector(31 downto 0);
+		signal Mux_OrigPC_OUT, Extensao_de_Sinal_OUT, SaidaALU_OUT, Dado_para_Escrita, SHIFT_AMOUNT : std_logic_vector(31 downto 0);
+		signal Dados_da_Leitura_1, Dados_da_Leitura_2, ALU_OUT, Dado, Mux_registrador_para_Escrita_in0, Mux_registrador_para_Escrita_in1 : std_logic_vector(31 downto 0);
+		signal RS, RT, RD, SHAMT : std_logic_vector(4 downto 0);
+		signal K16 : std_logic_vector(15 downto 0);
+		signal K26 : std_logic_vector(25 downto 0);
+		signal Mux_Endereco_Memoria_OUT : std_logic_vector(7 downto 0);
+		signal zero, overflow,is_beq, is_bne ,s_mem_address, 
+				 wPC, Ioud, EscreveMem, EscreveIR, 
+				 EscreveReg, RegDst, MemparaReg,OrigAALU, nclk, LeMem, resetPC, EscrevePC : std_logic;
+		signal OpALU :std_logic_vector(3 downto 0);
+		signal ctr_ctrUla, OrigPC, OrigBALU: std_logic_vector(1 downto 0);
+		signal FUNCT,OPCODE: std_logic_vector (5 downto 0);
+		signal saidahexa0,saidahexa1,saidahexa2,saidahexa3,saidahexa4,saidahexa5,saidahexa6,saidahexa7: std_logic_vector(3 downto 0);
+		 --(is_beq and zero)
+
+begin
+	
+		nclk <= not clk;
+		
+		
+		
+		PC : reg port map(clk => clk, enable => EscrevePC, rst => rst, sr_in => Mux_OrigPC_OUT, sr_out => PC_OUT);
+		--P_C <= PC_OUT;
+		Mux_Endereco_Memoria : mem_addr port map(in0 => PC_OUT, in1 => SaidaALU_OUT, sel => IouD, m_out => Mux_Endereco_Memoria_OUT);
+		
+		Memoria : mem_mips port map(address => Mux_Endereco_Memoria_OUT, clock => nclk, data => B_OUT, wren => EscreveMem, q => Memoria_OUT);
+			
+		RI : reg32 port map(clk => clk, enable => EscreveIR, sr_in => Memoria_OUT, sr_out => RI_OUT);
+		--R_I <= RI_OUT;
+		RDM : regbuf port map(clk => clk, sr_in => Memoria_OUT, sr_out => RDM_OUT);
+		--RDM_TESTE <= RDM_OUT;
+		Instrucao <= RI_OUT;
+		OPCODE <= RI_OUT(31 downto 26);
+		RS <= RI_OUT(25 downto 21);
+		--R_S <= RI_OUT(25 downto 21);
+		RT <= RI_OUT(20 downto 16);
+		--R_T <= RI_OUT(20 downto 16);
+		RD <= RI_OUT(15 downto 11);
+		SHAMT <= RI_OUT(10 downto 6);
+		FUNCT <= RI_OUT(5 downto 0);
+		K16 <= RI_OUT(15 downto 0);
+		K26 <= RI_OUT(25 downto 0);
+		 
+		Deslocamento_de_2_a_Esquerda2_OUT <= PC_OUT(31 downto 28) & K26 & "00";
+		
+		Mux_registrador_para_Escrita_in0 <= X"000000" & "000" & RT;
+		Mux_registrador_para_Escrita_in1 <= X"000000" & "000" & RD;
+		
+		SHIFT_AMOUNT <= X"000000" & "000" & SHAMT;
+		
+		Mux_Registrador_para_Escrita : mux_2 port map(in0 => Mux_registrador_para_Escrita_in0, in1 => Mux_registrador_para_Escrita_in1, sel => RegDst, m_out => Mux_Registrador_para_Escrita_OUT);
+		
+		--R_ESC <= Mux_Registrador_para_Escrita_OUT(4 downto 0);
+		
+		Mux_Dados_para_Escrita : mux_2 port map(in0 => SaidaALU_OUT, in1 => RDM_OUT, sel => MemparaReg, m_out => Mux_Dados_para_Escrita_OUT);
+		
+		Extensao_de_Sinal : extsgn port map(input => K16, output => Extensao_de_Sinal_OUT);
+		Deslocamento_de_2_a_Esquerda_OUT <= Extensao_de_Sinal_OUT(29 downto 0) & "00";
+		
+		process(Mux_Dados_para_Escrita_OUT) is
+		begin
+			Dado <= Mux_Dados_para_Escrita_OUT;
+		end process;
+		
+		Banco_de_Registradores : breg port map(clk => clk, enable => EscreveReg, idxA => RS, idxB => RT, idxwr => Mux_Registrador_para_Escrita_OUT(4 downto 0), data_in => Mux_Dados_para_Escrita_OUT, regA => Dados_da_Leitura_1, regB => Dados_da_Leitura_2);
+		
+		--LEITURA_1 <= Dados_da_Leitura_1;
+		--LEITURA_2 <= Dados_da_Leitura_2;
+		
+		--DADO_ESCRITA <= Mux_Dados_para_Escrita_OUT;
+		
+		A : regbuf port map(clk => clk, sr_in => Dados_da_Leitura_1, sr_out => A_OUT);
+		
+		--A_s <= A_OUT;
+		
+		B : regbuf port map(clk => clk, sr_in => Dados_da_Leitura_2, sr_out => B_OUT);
+		
+		--B_s <= B_OUT;
+		
+		Mux_A_ALU : mux_2 port map(in0 => PC_OUT, in1 => A_OUT, sel => OrigAALU, m_out => Mux_A_ALU_OUT);
+		Mux_B_ALU : mux_4 port map(in0 => B_OUT, in1 => X"00000004", in2 => Extensao_de_Sinal_OUT, in3 => Deslocamento_de_2_a_Esquerda_OUT, sel => OrigBALU, m_out => Mux_B_ALU_OUT);
+		
+		ALU : ulamips port map(aluctl => OpALU, A => Mux_A_ALU_OUT, B => Mux_B_ALU_OUT, SHAMT => SHIFT_AMOUNT, aluout => ALU_OUT, zero => zero, ovfl => overflow);
+		
+		--ULA_SAI <= ALU_OUT;
+		
+		SaidaALU : regbuf port map(clk => clk, sr_in => ALU_OUT, sr_out => SaidaALU_OUT);
+		
+		Mux_OrigPC : mux_3 port map(in0 => ALU_OUT, in1 => SaidaALU_OUT, in2 => Deslocamento_de_2_a_Esquerda2_OUT, sel => OrigPC, m_out => Mux_OrigPC_OUT);
+		
+		--data_out <= RI_OUT;
+		
+		ula_controle: alu_ctr port map (op_alu =>ctr_ctrUla,  funct => FUNCT, alu_ctr => OpALU);
+		
+		EscrevePC <= (is_beq and zero) or (is_bne and ( not zero)) or wPC;
+				
+		Controle_Mips: mips_control port map(clk =>clk, rst =>rst,opcode => OPCODE, wr_ir => EscreveIR, wr_pc => wPC, wr_mem => EscreveMem, is_beq => is_beq, is_bne => is_bne , s_datareg => MemparaReg, op_alu =>ctr_ctrUla, s_mem_add =>IouD, s_PCin=>OrigPC, s_aluAin => OrigAALU, s_aluBin=> OrigBALU, wr_breg=>EscreveReg, s_reg_add=>RegDst, s_le_mem => LeMem);
+		
+	process (pc_ri)
+			
+			
+  
+
+
+	begin
+	case pc_ri is
+		when "000" =>
+		saidahexa0 <= RI_OUT (3 downto 0);
+		saidahexa1 <= RI_OUT (7 downto 4);
+		saidahexa2 <= RI_OUT (11 downto 8);
+		saidahexa3 <= RI_OUT (15 downto 12);
+		saidahexa4 <= RI_OUT (19 downto 16);
+		saidahexa5 <= RI_OUT (23 downto 20);
+		saidahexa6 <= RI_OUT (27 downto 24);
+		saidahexa7 <= RI_OUT (31 downto 28);
+		when "001" =>
+		saidahexa0 <= PC_OUT (3 downto 0);
+		saidahexa1 <= PC_OUT (7 downto 4);
+		saidahexa2 <= PC_OUT (11 downto 8);
+		saidahexa3 <= PC_OUT (15 downto 12);
+		saidahexa4 <= PC_OUT (19 downto 16);
+		saidahexa5 <= PC_OUT (23 downto 20);
+		saidahexa6 <= PC_OUT (27 downto 24);
+		saidahexa7 <= PC_OUT (31 downto 28);
+		when "010" =>
+		saidahexa0 <= SaidaALU_OUT (3 downto 0);
+		saidahexa1 <= SaidaALU_OUT (7 downto 4);
+		saidahexa2 <= SaidaALU_OUT (11 downto 8);
+		saidahexa3 <= SaidaALU_OUT (15 downto 12);
+		saidahexa4 <= SaidaALU_OUT (19 downto 16);
+		saidahexa5 <= SaidaALU_OUT (23 downto 20);
+		saidahexa6 <= SaidaALU_OUT (27 downto 24);
+		saidahexa7 <= SaidaALU_OUT(31 downto 28);
+		when "011" =>
+		saidahexa0 <= RDM_OUT (3 downto 0);
+		saidahexa1 <= RDM_OUT (7 downto 4);
+		saidahexa2 <= RDM_OUT (11 downto 8);
+		saidahexa3 <= RDM_OUT (15 downto 12);
+		saidahexa4 <= RDM_OUT (19 downto 16);
+		saidahexa5 <= RDM_OUT (23 downto 20);
+		saidahexa6 <= RDM_OUT (27 downto 24);
+		saidahexa7 <= RDM_OUT (31 downto 28);
+		when "100" =>
+		saidahexa0 <= ALU_OUT (3 downto 0);
+		saidahexa1 <= ALU_OUT (7 downto 4);
+		saidahexa2 <= ALU_OUT (11 downto 8);
+		saidahexa3 <= ALU_OUT (15 downto 12);
+		saidahexa4 <= ALU_OUT (19 downto 16);
+		saidahexa5 <= ALU_OUT (23 downto 20);
+		saidahexa6 <= ALU_OUT (27 downto 24);
+		saidahexa7 <= ALU_OUT (31 downto 28);
+		when "101" =>
+		saidahexa0 <= Memoria_OUT (3 downto 0);
+		saidahexa1 <= Memoria_OUT (7 downto 4);
+		saidahexa2 <= Memoria_OUT (11 downto 8);
+		saidahexa3 <= Memoria_OUT (15 downto 12);
+		saidahexa4 <= Memoria_OUT (19 downto 16);
+		saidahexa5 <= Memoria_OUT (23 downto 20);
+		saidahexa6 <= Memoria_OUT (27 downto 24);
+		saidahexa7 <= Memoria_OUT (31 downto 28);
+		when "110" =>
+		saidahexa0 <= B_OUT(3 downto 0);
+		saidahexa1 <= B_OUT (7 downto 4);
+		saidahexa2 <= B_OUT (11 downto 8);
+		saidahexa3 <= B_OUT (15 downto 12);
+		saidahexa4 <= B_OUT (19 downto 16);
+		saidahexa5 <= B_OUT (23 downto 20);
+		saidahexa6 <= B_OUT (27 downto 24);
+		saidahexa7 <= B_OUT (31 downto 28);
+		when "111" =>
+		saidahexa0 <= Mux_Endereco_Memoria_OUT(3 downto 0);
+		saidahexa1 <= Mux_Endereco_Memoria_OUT(7 downto 4);
+		saidahexa2 <= X"0";
+		saidahexa3 <= X"0";
+		saidahexa4 <= X"0";
+		saidahexa5 <= X"0";
+		saidahexa6 <= X"0";
+		saidahexa7 <= X"0";
+		when others =>
+		saidahexa0 <= X"0";
+		saidahexa1 <= X"0";
+		saidahexa2 <= X"0";
+		saidahexa3 <= X"0";
+		saidahexa4 <= X"0";
+		saidahexa5 <= X"0";
+		saidahexa6 <= X"0";
+		saidahexa7 <= X"0";
+		
+		end case;
+		end process;
+		
+	
+		
+		SAIDA_INSTRUCAO0: hex7seg port map (hex_in=> saidahexa0, seven_out =>hexari0);
+		SAIDA_INSTRUCAO1: hex7seg port map (hex_in=> saidahexa1, seven_out =>hexari1);
+		SAIDA_INSTRUCAO2: hex7seg port map (hex_in=> saidahexa2, seven_out =>hexari2);
+		SAIDA_INSTRUCAO3: hex7seg port map (hex_in=> saidahexa3, seven_out =>hexari3);
+		SAIDA_INSTRUCAO4: hex7seg port map (hex_in=> saidahexa4, seven_out =>hexari4);
+		SAIDA_INSTRUCAO5: hex7seg port map (hex_in=> saidahexa5, seven_out =>hexari5);
+		SAIDA_INSTRUCAO6: hex7seg port map (hex_in=> saidahexa6, seven_out =>hexari6);
+		SAIDA_INSTRUCAO7: hex7seg port map (hex_in=> saidahexa7, seven_out =>hexari7);
+--		then
+		
+		
+--		sete_seg0: hex7seg port map (hex_in=> PC_OUT (3 downto 0), seven_out =>hexa0);--
+--		sete_seg1: hex7seg port map (hex_in=> PC_OUT (7 downto 4), seven_out =>hexa1);
+--		sete_seg2: hex7seg port map (hex_in=> PC_OUT (11 downto 8), seven_out =>hexa2);
+--		sete_seg3: hex7seg port map (hex_in=> PC_OUT (15 downto 12), seven_out =>hexa3);
+--		sete_seg4: hex7seg port map (hex_in=> PC_OUT (19 downto 16), seven_out =>hexa4);
+--		sete_seg5: hex7seg port map (hex_in=> PC_OUT (23 downto 20), seven_out =>hexa5);
+--		sete_seg6: hex7seg port map (hex_in=> PC_OUT (27 downto 24), seven_out =>hexa6);
+--		sete_seg8: hex7seg port map (hex_in=> PC_OUT (31 downto 28), seven_out =>hexa7);
+			--	end if;
+--		end process;
+end;

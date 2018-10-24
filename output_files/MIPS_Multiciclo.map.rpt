@@ -1,0 +1,1227 @@
+Analysis & Synthesis report for MIPS_Multiciclo
+Mon Dec 14 22:00:10 2015
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |MIPS_Multiciclo|mips_control:Controladora|pstate
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Registers Added for RAM Pass-Through Logic
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Source assignments for mips_mem:Memoria|altsyncram:altsyncram_component|altsyncram_dmc1:auto_generated
+ 15. Source assignments for breg:Banco_de_Registradores|altsyncram:breg32_rtl_0|altsyncram_bnd1:auto_generated
+ 16. Source assignments for breg:Banco_de_Registradores|altsyncram:breg32_rtl_1|altsyncram_bnd1:auto_generated
+ 17. Parameter Settings for User Entity Instance: reg:PC
+ 18. Parameter Settings for User Entity Instance: mux_2:MUX_PC_MEM
+ 19. Parameter Settings for User Entity Instance: mips_mem:Memoria
+ 20. Parameter Settings for User Entity Instance: mips_mem:Memoria|altsyncram:altsyncram_component
+ 21. Parameter Settings for User Entity Instance: regbuf:REG_DATA_MEM
+ 22. Parameter Settings for User Entity Instance: reg:RI
+ 23. Parameter Settings for User Entity Instance: mux_2:MUX1_RI_BR
+ 24. Parameter Settings for User Entity Instance: mux_2:MUX2_RI_BR
+ 25. Parameter Settings for User Entity Instance: breg:Banco_de_Registradores
+ 26. Parameter Settings for User Entity Instance: extsgn:Extensor_de_Sinal
+ 27. Parameter Settings for User Entity Instance: regbuf:REG_A
+ 28. Parameter Settings for User Entity Instance: regbuf:REG_B
+ 29. Parameter Settings for User Entity Instance: mux_2:MUX_A_ALU
+ 30. Parameter Settings for User Entity Instance: mux_4:MUX_B_extsgn_ALU
+ 31. Parameter Settings for User Entity Instance: ulamips:ULA
+ 32. Parameter Settings for User Entity Instance: regbuf:SaidaAlu
+ 33. Parameter Settings for User Entity Instance: mux_4:MUX_de_4_Entradas
+ 34. Parameter Settings for Inferred Entity Instance: breg:Banco_de_Registradores|altsyncram:breg32_rtl_0
+ 35. Parameter Settings for Inferred Entity Instance: breg:Banco_de_Registradores|altsyncram:breg32_rtl_1
+ 36. altsyncram Parameter Settings by Entity Instance
+ 37. Port Connectivity Checks: "mux_4:MUX_de_4_Entradas"
+ 38. Port Connectivity Checks: "mux_4:MUX_B_extsgn_ALU"
+ 39. Port Connectivity Checks: "mux_2:MUX1_RI_BR"
+ 40. Port Connectivity Checks: "mux_2:MUX_PC_MEM"
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Dec 14 22:00:10 2015      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; MIPS_Multiciclo                            ;
+; Top-level Entity Name              ; MIPS_Multiciclo                            ;
+; Family                             ; Cyclone II                                 ;
+; Total logic elements               ; 1,114                                      ;
+;     Total combinational functions  ; 1,014                                      ;
+;     Dedicated logic registers      ; 275                                        ;
+; Total registers                    ; 275                                        ;
+; Total pins                         ; 338                                        ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 10,240                                     ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C5F256C6        ;                    ;
+; Top-level entity name                                                      ; MIPS_Multiciclo    ; MIPS_Multiciclo    ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; ulamips.vhd                      ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/ulamips.vhd            ;         ;
+; regbuf.vhd                       ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/regbuf.vhd             ;         ;
+; reg.vhd                          ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/reg.vhd                ;         ;
+; mux_4.vhd                        ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_4.vhd              ;         ;
+; mux_2.vhd                        ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_2.vhd              ;         ;
+; mips_pkg.vhd                     ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_pkg.vhd           ;         ;
+; mips_mem.vhd                     ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_mem.vhd           ;         ;
+; mips_control.vhd                 ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_control.vhd       ;         ;
+; extsgn.vhd                       ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/extsgn.vhd             ;         ;
+; breg.vhd                         ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/breg.vhd               ;         ;
+; alu_ctr.vhd                      ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/alu_ctr.vhd            ;         ;
+; MIPS_Multiciclo.vhd              ; yes             ; User VHDL File                         ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/MIPS_Multiciclo.vhd    ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/altsyncram.tdf                ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/stratix_ram_block.inc         ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/lpm_mux.inc                   ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/lpm_decode.inc                ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/aglobal130.inc                ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/a_rdenreg.inc                 ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/altrom.inc                    ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/altram.inc                    ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/altera/13.0/quartus/libraries/megafunctions/altdpram.inc                  ;         ;
+; db/altsyncram_dmc1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/db/altsyncram_dmc1.tdf ;         ;
+; mem3.mif                         ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mem3.mif               ;         ;
+; db/altsyncram_bnd1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/db/altsyncram_bnd1.tdf ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 1,114 ;
+;                                             ;       ;
+; Total combinational functions               ; 1014  ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 625   ;
+;     -- 3 input functions                    ; 340   ;
+;     -- <=2 input functions                  ; 49    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 952   ;
+;     -- arithmetic mode                      ; 62    ;
+;                                             ;       ;
+; Total registers                             ; 275   ;
+;     -- Dedicated logic registers            ; 275   ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 338   ;
+; Total memory bits                           ; 10240 ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 371   ;
+; Total fan-out                               ; 6087  ;
+; Average fan-out                             ; 3.53  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                        ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                 ; Library Name ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+; |MIPS_Multiciclo                          ; 1014 (4)          ; 275 (0)      ; 10240       ; 0            ; 0       ; 0         ; 338  ; 0            ; |MIPS_Multiciclo                                                                                    ;              ;
+;    |alu_ctr:COntroladora_ULA|             ; 34 (34)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|alu_ctr:COntroladora_ULA                                                           ;              ;
+;    |breg:Banco_de_Registradores|          ; 14 (14)           ; 71 (71)      ; 2048        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|breg:Banco_de_Registradores                                                        ;              ;
+;       |altsyncram:breg32_rtl_0|           ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|breg:Banco_de_Registradores|altsyncram:breg32_rtl_0                                ;              ;
+;          |altsyncram_bnd1:auto_generated| ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|breg:Banco_de_Registradores|altsyncram:breg32_rtl_0|altsyncram_bnd1:auto_generated ;              ;
+;       |altsyncram:breg32_rtl_1|           ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|breg:Banco_de_Registradores|altsyncram:breg32_rtl_1                                ;              ;
+;          |altsyncram_bnd1:auto_generated| ; 0 (0)             ; 0 (0)        ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|breg:Banco_de_Registradores|altsyncram:breg32_rtl_1|altsyncram_bnd1:auto_generated ;              ;
+;    |mips_control:Controladora|            ; 31 (31)           ; 12 (12)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mips_control:Controladora                                                          ;              ;
+;    |mips_mem:Memoria|                     ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mips_mem:Memoria                                                                   ;              ;
+;       |altsyncram:altsyncram_component|   ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mips_mem:Memoria|altsyncram:altsyncram_component                                   ;              ;
+;          |altsyncram_dmc1:auto_generated| ; 0 (0)             ; 0 (0)        ; 8192        ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mips_mem:Memoria|altsyncram:altsyncram_component|altsyncram_dmc1:auto_generated    ;              ;
+;    |mux_2:MUX1_RI_BR|                     ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mux_2:MUX1_RI_BR                                                                   ;              ;
+;    |mux_2:MUX2_RI_BR|                     ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mux_2:MUX2_RI_BR                                                                   ;              ;
+;    |mux_2:MUX_A_ALU|                      ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mux_2:MUX_A_ALU                                                                    ;              ;
+;    |mux_2:MUX_PC_MEM|                     ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mux_2:MUX_PC_MEM                                                                   ;              ;
+;    |mux_4:MUX_B_extsgn_ALU|               ; 47 (47)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mux_4:MUX_B_extsgn_ALU                                                             ;              ;
+;    |mux_4:MUX_de_4_Entradas|              ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|mux_4:MUX_de_4_Entradas                                                            ;              ;
+;    |reg:PC|                               ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|reg:PC                                                                             ;              ;
+;    |reg:RI|                               ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|reg:RI                                                                             ;              ;
+;    |regbuf:REG_A|                         ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|regbuf:REG_A                                                                       ;              ;
+;    |regbuf:REG_B|                         ; 32 (32)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|regbuf:REG_B                                                                       ;              ;
+;    |regbuf:REG_DATA_MEM|                  ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|regbuf:REG_DATA_MEM                                                                ;              ;
+;    |regbuf:SaidaAlu|                      ; 0 (0)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|regbuf:SaidaAlu                                                                    ;              ;
+;    |ulamips:ULA|                          ; 657 (657)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |MIPS_Multiciclo|ulamips:ULA                                                                        ;              ;
++-------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                      ;
++-----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------+
+; Name                                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF      ;
++-----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------+
+; breg:Banco_de_Registradores|altsyncram:breg32_rtl_0|altsyncram_bnd1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None     ;
+; breg:Banco_de_Registradores|altsyncram:breg32_rtl_1|altsyncram_bnd1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 32           ; 32           ; 32           ; 32           ; 1024 ; None     ;
+; mips_mem:Memoria|altsyncram:altsyncram_component|altsyncram_dmc1:auto_generated|ALTSYNCRAM    ; AUTO ; Single Port      ; 256          ; 32           ; --           ; --           ; 8192 ; mem3.mif ;
++-----------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+----------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |MIPS_Multiciclo|mips_control:Controladora|pstate                                                                                                                                                                                               ;
++---------------------+----------------+----------------+-------------------+---------------------+--------------------+--------------------+--------------------+-----------------+-------------------+---------------------+------------------+-----------------+
+; Name                ; pstate.imm_st2 ; pstate.imm_st1 ; pstate.jump_ex_st ; pstate.branch_ex_st ; pstate.writereg_st ; pstate.rtype_ex_st ; pstate.writemem_st ; pstate.ldreg_st ; pstate.readmem_st ; pstate.c_mem_add_st ; pstate.decode_st ; pstate.fetch_st ;
++---------------------+----------------+----------------+-------------------+---------------------+--------------------+--------------------+--------------------+-----------------+-------------------+---------------------+------------------+-----------------+
+; pstate.fetch_st     ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 0               ;
+; pstate.decode_st    ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 1                ; 1               ;
+; pstate.c_mem_add_st ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 1                   ; 0                ; 1               ;
+; pstate.readmem_st   ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 1                 ; 0                   ; 0                ; 1               ;
+; pstate.ldreg_st     ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 1               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.writemem_st  ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 1                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.rtype_ex_st  ; 0              ; 0              ; 0                 ; 0                   ; 0                  ; 1                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.writereg_st  ; 0              ; 0              ; 0                 ; 0                   ; 1                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.branch_ex_st ; 0              ; 0              ; 0                 ; 1                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.jump_ex_st   ; 0              ; 0              ; 1                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.imm_st1      ; 0              ; 1              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
+; pstate.imm_st2      ; 1              ; 0              ; 0                 ; 0                   ; 0                  ; 0                  ; 0                  ; 0               ; 0                 ; 0                   ; 0                ; 1               ;
++---------------------+----------------+----------------+-------------------+---------------------+--------------------+--------------------+--------------------+-----------------+-------------------+---------------------+------------------+-----------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                              ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+; breg:Banco_de_Registradores|breg32~71               ; Merged with breg:Banco_de_Registradores|breg32~38               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[2]  ; Merged with reg:RI|sr_out[16]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[4]  ; Merged with reg:RI|sr_out[17]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[6]  ; Merged with reg:RI|sr_out[18]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[8]  ; Merged with reg:RI|sr_out[19]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[10] ; Merged with reg:RI|sr_out[20]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[2]  ; Merged with reg:RI|sr_out[21]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[4]  ; Merged with reg:RI|sr_out[22]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[6]  ; Merged with reg:RI|sr_out[23]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[8]  ; Merged with reg:RI|sr_out[24]                                   ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[10] ; Merged with reg:RI|sr_out[25]                                   ;
+; breg:Banco_de_Registradores|breg32~72               ; Merged with breg:Banco_de_Registradores|breg32~39               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[11] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[11] ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[0]  ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[0]  ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[1]  ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[1]  ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[3]  ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[3]  ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[5]  ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[5]  ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[7]  ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[7]  ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[9]  ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[9]  ;
+; breg:Banco_de_Registradores|breg32~73               ; Merged with breg:Banco_de_Registradores|breg32~40               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[12] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[12] ;
+; breg:Banco_de_Registradores|breg32~74               ; Merged with breg:Banco_de_Registradores|breg32~41               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[13] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[13] ;
+; breg:Banco_de_Registradores|breg32~75               ; Merged with breg:Banco_de_Registradores|breg32~42               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[14] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[14] ;
+; breg:Banco_de_Registradores|breg32~76               ; Merged with breg:Banco_de_Registradores|breg32~43               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[15] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[15] ;
+; breg:Banco_de_Registradores|breg32~77               ; Merged with breg:Banco_de_Registradores|breg32~44               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[16] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[16] ;
+; breg:Banco_de_Registradores|breg32~78               ; Merged with breg:Banco_de_Registradores|breg32~45               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[17] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[17] ;
+; breg:Banco_de_Registradores|breg32~79               ; Merged with breg:Banco_de_Registradores|breg32~46               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[18] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[18] ;
+; breg:Banco_de_Registradores|breg32~80               ; Merged with breg:Banco_de_Registradores|breg32~47               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[19] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[19] ;
+; breg:Banco_de_Registradores|breg32~81               ; Merged with breg:Banco_de_Registradores|breg32~48               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[20] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[20] ;
+; breg:Banco_de_Registradores|breg32~82               ; Merged with breg:Banco_de_Registradores|breg32~49               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[21] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[21] ;
+; breg:Banco_de_Registradores|breg32~83               ; Merged with breg:Banco_de_Registradores|breg32~50               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[22] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[22] ;
+; breg:Banco_de_Registradores|breg32~84               ; Merged with breg:Banco_de_Registradores|breg32~51               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[23] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[23] ;
+; breg:Banco_de_Registradores|breg32~85               ; Merged with breg:Banco_de_Registradores|breg32~52               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[24] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[24] ;
+; breg:Banco_de_Registradores|breg32~86               ; Merged with breg:Banco_de_Registradores|breg32~53               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[25] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[25] ;
+; breg:Banco_de_Registradores|breg32~87               ; Merged with breg:Banco_de_Registradores|breg32~54               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[26] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[26] ;
+; breg:Banco_de_Registradores|breg32~88               ; Merged with breg:Banco_de_Registradores|breg32~55               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[27] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[27] ;
+; breg:Banco_de_Registradores|breg32~89               ; Merged with breg:Banco_de_Registradores|breg32~56               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[28] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[28] ;
+; breg:Banco_de_Registradores|breg32~90               ; Merged with breg:Banco_de_Registradores|breg32~57               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[29] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[29] ;
+; breg:Banco_de_Registradores|breg32~91               ; Merged with breg:Banco_de_Registradores|breg32~58               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[30] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[30] ;
+; breg:Banco_de_Registradores|breg32~92               ; Merged with breg:Banco_de_Registradores|breg32~59               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[31] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[31] ;
+; breg:Banco_de_Registradores|breg32~93               ; Merged with breg:Banco_de_Registradores|breg32~60               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[32] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[32] ;
+; breg:Banco_de_Registradores|breg32~94               ; Merged with breg:Banco_de_Registradores|breg32~61               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[33] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[33] ;
+; breg:Banco_de_Registradores|breg32~95               ; Merged with breg:Banco_de_Registradores|breg32~62               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[34] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[34] ;
+; breg:Banco_de_Registradores|breg32~96               ; Merged with breg:Banco_de_Registradores|breg32~63               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[35] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[35] ;
+; breg:Banco_de_Registradores|breg32~97               ; Merged with breg:Banco_de_Registradores|breg32~64               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[36] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[36] ;
+; breg:Banco_de_Registradores|breg32~98               ; Merged with breg:Banco_de_Registradores|breg32~65               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[37] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[37] ;
+; breg:Banco_de_Registradores|breg32~99               ; Merged with breg:Banco_de_Registradores|breg32~66               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[38] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[38] ;
+; breg:Banco_de_Registradores|breg32~100              ; Merged with breg:Banco_de_Registradores|breg32~67               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[39] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[39] ;
+; breg:Banco_de_Registradores|breg32~101              ; Merged with breg:Banco_de_Registradores|breg32~68               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[40] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[40] ;
+; breg:Banco_de_Registradores|breg32~102              ; Merged with breg:Banco_de_Registradores|breg32~69               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[41] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[41] ;
+; breg:Banco_de_Registradores|breg32~103              ; Merged with breg:Banco_de_Registradores|breg32~70               ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[42] ; Merged with breg:Banco_de_Registradores|breg32_rtl_0_bypass[42] ;
+; Total Number of Removed Registers = 81              ;                                                                 ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 275   ;
+; Number of registers using Synchronous Clear  ; 64    ;
+; Number of registers using Synchronous Load   ; 64    ;
+; Number of registers using Asynchronous Clear ; 77    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 97    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Added for RAM Pass-Through Logic                                                     ;
++-----------------------------------------------------+------------------------------------------+
+; Register Name                                       ; RAM Name                                 ;
++-----------------------------------------------------+------------------------------------------+
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[0]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[1]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[2]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[3]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[4]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[5]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[6]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[7]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[8]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[9]  ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[10] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[11] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[12] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[13] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[14] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[15] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[16] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[17] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[18] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[19] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[20] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[21] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[22] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[23] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[24] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[25] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[26] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[27] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[28] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[29] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[30] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[31] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[32] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[33] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[34] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[35] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[36] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[37] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[38] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[39] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[40] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[41] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_0_bypass[42] ; breg:Banco_de_Registradores|breg32_rtl_0 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[0]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[1]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[2]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[3]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[4]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[5]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[6]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[7]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[8]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[9]  ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[10] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[11] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[12] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[13] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[14] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[15] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[16] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[17] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[18] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[19] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[20] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[21] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[22] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[23] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[24] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[25] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[26] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[27] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[28] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[29] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[30] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[31] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[32] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[33] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[34] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[35] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[36] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[37] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[38] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[39] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[40] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[41] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
+; breg:Banco_de_Registradores|breg32_rtl_1_bypass[42] ; breg:Banco_de_Registradores|breg32_rtl_1 ;
++-----------------------------------------------------+------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |MIPS_Multiciclo|reg:PC|sr_out[0]                    ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |MIPS_Multiciclo|regbuf:REG_A|sr_out[7]              ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |MIPS_Multiciclo|regbuf:REG_B|sr_out[24]             ;
+; 4:1                ; 30 bits   ; 60 LEs        ; 60 LEs               ; 0 LEs                  ; Yes        ; |MIPS_Multiciclo|reg:PC|sr_out[15]                   ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |MIPS_Multiciclo|mux_4:MUX_B_extsgn_ALU|m_out[0]     ;
+; 4:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |MIPS_Multiciclo|mux_4:MUX_B_extsgn_ALU|m_out[11]    ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |MIPS_Multiciclo|mux_4:MUX_B_extsgn_ALU|m_out[19]    ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; No         ; |MIPS_Multiciclo|ulamips:ULA|Mux17                   ;
+; 19:1               ; 8 bits    ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; No         ; |MIPS_Multiciclo|ulamips:ULA|Mux13                   ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 36 LEs               ; 16 LEs                 ; No         ; |MIPS_Multiciclo|ulamips:ULA|Mux24                   ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; No         ; |MIPS_Multiciclo|ulamips:ULA|Mux6                    ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 20 LEs               ; 8 LEs                  ; No         ; |MIPS_Multiciclo|ulamips:ULA|Mux29                   ;
+; 21:1               ; 2 bits    ; 28 LEs        ; 20 LEs               ; 8 LEs                  ; No         ; |MIPS_Multiciclo|ulamips:ULA|Mux3                    ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |MIPS_Multiciclo|alu_ctr:COntroladora_ULA|alu_ctr[1] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------+
+; Source assignments for mips_mem:Memoria|altsyncram:altsyncram_component|altsyncram_dmc1:auto_generated ;
++---------------------------------+--------------------+------+------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                       ;
++---------------------------------+--------------------+------+------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                        ;
++---------------------------------+--------------------+------+------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Source assignments for breg:Banco_de_Registradores|altsyncram:breg32_rtl_0|altsyncram_bnd1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                          ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                           ;
++---------------------------------+--------------------+------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Source assignments for breg:Banco_de_Registradores|altsyncram:breg32_rtl_1|altsyncram_bnd1:auto_generated ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                          ;
++---------------------------------+--------------------+------+---------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                           ;
++---------------------------------+--------------------+------+---------------------------------------------+
+
+
++-----------------------------------------------------+
+; Parameter Settings for User Entity Instance: reg:PC ;
++----------------+-------+----------------------------+
+; Parameter Name ; Value ; Type                       ;
++----------------+-------+----------------------------+
+; size           ; 32    ; Signed Integer             ;
++----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_2:MUX_PC_MEM ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; size           ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips_mem:Memoria ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; width          ; 32    ; Signed Integer                       ;
+; waddr          ; 8     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mips_mem:Memoria|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-----------------------------------+
+; Parameter Name                     ; Value                ; Type                              ;
++------------------------------------+----------------------+-----------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                           ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                           ;
+; WIDTH_A                            ; 32                   ; Signed Integer                    ;
+; WIDTHAD_A                          ; 8                    ; Signed Integer                    ;
+; NUMWORDS_A                         ; 256                  ; Signed Integer                    ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                           ;
+; WIDTH_B                            ; 1                    ; Untyped                           ;
+; WIDTHAD_B                          ; 1                    ; Untyped                           ;
+; NUMWORDS_B                         ; 1                    ; Untyped                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                    ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                           ;
+; INIT_FILE                          ; mem3.mif             ; Untyped                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                           ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                           ;
+; CBXI_PARAMETER                     ; altsyncram_dmc1      ; Untyped                           ;
++------------------------------------+----------------------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regbuf:REG_DATA_MEM ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; size           ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Parameter Settings for User Entity Instance: reg:RI ;
++----------------+-------+----------------------------+
+; Parameter Name ; Value ; Type                       ;
++----------------+-------+----------------------------+
+; size           ; 32    ; Signed Integer             ;
++----------------+-------+----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_2:MUX1_RI_BR ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; size           ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_2:MUX2_RI_BR ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; size           ; 32    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: breg:Banco_de_Registradores ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; size           ; 32    ; Signed Integer                                  ;
+; addr           ; 5     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: extsgn:Extensor_de_Sinal ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; in_size        ; 16    ; Signed Integer                               ;
+; out_size       ; 32    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regbuf:REG_A ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; size           ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regbuf:REG_B ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; size           ; 32    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_2:MUX_A_ALU ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; size           ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_4:MUX_B_extsgn_ALU ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; w_size         ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ulamips:ULA ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; SIZE           ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: regbuf:SaidaAlu ;
++----------------+-------+-------------------------------------+
+; Parameter Name ; Value ; Type                                ;
++----------------+-------+-------------------------------------+
+; size           ; 32    ; Signed Integer                      ;
++----------------+-------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: mux_4:MUX_de_4_Entradas ;
++----------------+-------+---------------------------------------------+
+; Parameter Name ; Value ; Type                                        ;
++----------------+-------+---------------------------------------------+
+; w_size         ; 32    ; Signed Integer                              ;
++----------------+-------+---------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: breg:Banco_de_Registradores|altsyncram:breg32_rtl_0 ;
++------------------------------------+----------------------+------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                     ;
++------------------------------------+----------------------+------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                           ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                  ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                  ;
+; WIDTH_A                            ; 32                   ; Untyped                                  ;
+; WIDTHAD_A                          ; 5                    ; Untyped                                  ;
+; NUMWORDS_A                         ; 32                   ; Untyped                                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                  ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                  ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WIDTH_B                            ; 32                   ; Untyped                                  ;
+; WIDTHAD_B                          ; 5                    ; Untyped                                  ;
+; NUMWORDS_B                         ; 32                   ; Untyped                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                  ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                  ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                  ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                  ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                  ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                  ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                  ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                  ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                  ;
+; CBXI_PARAMETER                     ; altsyncram_bnd1      ; Untyped                                  ;
++------------------------------------+----------------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: breg:Banco_de_Registradores|altsyncram:breg32_rtl_1 ;
++------------------------------------+----------------------+------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                     ;
++------------------------------------+----------------------+------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                  ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                               ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                             ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                             ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                           ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                  ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                  ;
+; WIDTH_A                            ; 32                   ; Untyped                                  ;
+; WIDTHAD_A                          ; 5                    ; Untyped                                  ;
+; NUMWORDS_A                         ; 32                   ; Untyped                                  ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                  ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                  ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                  ;
+; WIDTH_B                            ; 32                   ; Untyped                                  ;
+; WIDTHAD_B                          ; 5                    ; Untyped                                  ;
+; NUMWORDS_B                         ; 32                   ; Untyped                                  ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                  ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                  ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                  ;
+; ADDRESS_REG_B                      ; CLOCK0               ; Untyped                                  ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                  ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                  ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                  ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                  ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                  ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                  ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                  ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                  ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                  ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                  ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                  ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                  ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                  ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                  ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                  ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped                                  ;
+; CBXI_PARAMETER                     ; altsyncram_bnd1      ; Untyped                                  ;
++------------------------------------+----------------------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                ;
++-------------------------------------------+-----------------------------------------------------+
+; Name                                      ; Value                                               ;
++-------------------------------------------+-----------------------------------------------------+
+; Number of entity instances                ; 3                                                   ;
+; Entity Instance                           ; mips_mem:Memoria|altsyncram:altsyncram_component    ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                         ;
+;     -- WIDTH_A                            ; 32                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                        ;
+;     -- WIDTH_B                            ; 1                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                           ;
+; Entity Instance                           ; breg:Banco_de_Registradores|altsyncram:breg32_rtl_0 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                           ;
+;     -- WIDTH_A                            ; 32                                                  ;
+;     -- NUMWORDS_A                         ; 32                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                        ;
+;     -- WIDTH_B                            ; 32                                                  ;
+;     -- NUMWORDS_B                         ; 32                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                           ;
+; Entity Instance                           ; breg:Banco_de_Registradores|altsyncram:breg32_rtl_1 ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                           ;
+;     -- WIDTH_A                            ; 32                                                  ;
+;     -- NUMWORDS_A                         ; 32                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                        ;
+;     -- WIDTH_B                            ; 32                                                  ;
+;     -- NUMWORDS_B                         ; 32                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                           ;
++-------------------------------------------+-----------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Port Connectivity Checks: "mux_4:MUX_de_4_Entradas" ;
++------------+-------+----------+---------------------+
+; Port       ; Type  ; Severity ; Details             ;
++------------+-------+----------+---------------------+
+; in2[1..0]  ; Input ; Info     ; Stuck at GND        ;
+; in3[8..7]  ; Input ; Info     ; Stuck at VCC        ;
+; in3[30..9] ; Input ; Info     ; Stuck at GND        ;
+; in3[6..0]  ; Input ; Info     ; Stuck at GND        ;
+; in3[31]    ; Input ; Info     ; Stuck at VCC        ;
++------------+-------+----------+---------------------+
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "mux_4:MUX_B_extsgn_ALU" ;
++------------+-------+----------+--------------------+
+; Port       ; Type  ; Severity ; Details            ;
++------------+-------+----------+--------------------+
+; in1[31..3] ; Input ; Info     ; Stuck at GND       ;
+; in1[1..0]  ; Input ; Info     ; Stuck at GND       ;
+; in1[2]     ; Input ; Info     ; Stuck at VCC       ;
+; in3[1..0]  ; Input ; Info     ; Stuck at GND       ;
++------------+-------+----------+--------------------+
+
+
++----------------------------------------------+
+; Port Connectivity Checks: "mux_2:MUX1_RI_BR" ;
++------------+-------+----------+--------------+
+; Port       ; Type  ; Severity ; Details      ;
++------------+-------+----------+--------------+
+; in0[31..5] ; Input ; Info     ; Stuck at GND ;
+; in1[31..5] ; Input ; Info     ; Stuck at GND ;
++------------+-------+----------+--------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "mux_2:MUX_PC_MEM"  ;
++-------------+-------+----------+--------------+
+; Port        ; Type  ; Severity ; Details      ;
++-------------+-------+----------+--------------+
+; in1[31..10] ; Input ; Info     ; Stuck at GND ;
+; in1[1..0]   ; Input ; Info     ; Stuck at GND ;
+; in1[9]      ; Input ; Info     ; Stuck at VCC ;
++-------------+-------+----------+--------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Mon Dec 14 22:00:03 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MIPS_Multiciclo -c MIPS_Multiciclo
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file de2_top.v
+    Info (12023): Found entity 1: DE2_TOP
+Warning (10275): Verilog HDL Module Instantiation warning at DE2_70_TOP.v(431): ignored dangling comma in List of Port Connections
+Info (12021): Found 1 design units, including 1 entities, in source file de2_70_top.v
+    Info (12023): Found entity 1: DE2_70_TOP
+Info (12021): Found 2 design units, including 1 entities, in source file deslocador_2bits_tb.vhd
+    Info (12022): Found design unit 1: DESLOCADOR_2BITS_TB-DESLOCADOR_2BITS_arch
+    Info (12023): Found entity 1: DESLOCADOR_2BITS_TB
+Info (12021): Found 2 design units, including 1 entities, in source file deslocador_2bits.vhd
+    Info (12022): Found design unit 1: DESLOCADOR_2BITS-comportamental
+    Info (12023): Found entity 1: DESLOCADOR_2BITS
+Info (12021): Found 2 design units, including 1 entities, in source file ulamips.vhd
+    Info (12022): Found design unit 1: ulamips-behavioral
+    Info (12023): Found entity 1: ulamips
+Info (12021): Found 2 design units, including 1 entities, in source file regbuf.vhd
+    Info (12022): Found design unit 1: regbuf-rtl
+    Info (12023): Found entity 1: regbuf
+Info (12021): Found 2 design units, including 1 entities, in source file reg.vhd
+    Info (12022): Found design unit 1: reg-rtl
+    Info (12023): Found entity 1: reg
+Info (12021): Found 2 design units, including 1 entities, in source file mux_4.vhd
+    Info (12022): Found design unit 1: mux_4-rtl
+    Info (12023): Found entity 1: mux_4
+Info (12021): Found 2 design units, including 1 entities, in source file mux_3.vhd
+    Info (12022): Found design unit 1: mux_3-rtl
+    Info (12023): Found entity 1: mux_3
+Info (12021): Found 2 design units, including 1 entities, in source file mux_2.vhd
+    Info (12022): Found design unit 1: mux_2-rtl
+    Info (12023): Found entity 1: mux_2
+Info (12021): Found 2 design units, including 0 entities, in source file mips_pkg.vhd
+    Info (12022): Found design unit 1: mips_pkg
+    Info (12022): Found design unit 2: mips_pkg-body
+Info (12021): Found 2 design units, including 1 entities, in source file mips_mem.vhd
+    Info (12022): Found design unit 1: mips_mem-rtl
+    Info (12023): Found entity 1: mips_mem
+Info (12021): Found 2 design units, including 1 entities, in source file mips_control.vhd
+    Info (12022): Found design unit 1: mips_control-control_op
+    Info (12023): Found entity 1: mips_control
+Info (12021): Found 2 design units, including 1 entities, in source file extsgn.vhd
+    Info (12022): Found design unit 1: extsgn-extsgn_Arch
+    Info (12023): Found entity 1: extsgn
+Info (12021): Found 2 design units, including 1 entities, in source file breg.vhd
+    Info (12022): Found design unit 1: breg-rtl
+    Info (12023): Found entity 1: breg
+Info (12021): Found 2 design units, including 1 entities, in source file alu_ctr.vhd
+    Info (12022): Found design unit 1: alu_ctr-behav
+    Info (12023): Found entity 1: alu_ctr
+Info (12021): Found 2 design units, including 1 entities, in source file mips_multiciclo.vhd
+    Info (12022): Found design unit 1: MIpS_Multiciclo-MIPS_Multiciclo_Arch
+    Info (12023): Found entity 1: MIPS_Multiciclo
+Info (12021): Found 2 design units, including 1 entities, in source file mips_multiciclo_tb.vhd
+    Info (12022): Found design unit 1: Mips_multiciclo_tb-mips_multiciclo_arch_tb
+    Info (12023): Found entity 1: MIPS_Multiciclo_tb
+Info (12021): Found 2 design units, including 1 entities, in source file simulation/modelsim/mips_multiciclo_vhd_tst.vhd
+    Info (12022): Found design unit 1: MIPS_Multiciclo_vhd_tst-MIPS_Multiciclo_arch
+    Info (12023): Found entity 1: MIPS_Multiciclo_vhd_tst
+Info (12127): Elaborating entity "MIPS_Multiciclo" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at MIPS_Multiciclo.vhd(35): object "Funct" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(119): signal "Instrucao" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(120): signal "Endereco_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(121): signal "saida_alu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(124): signal "OrigBAlu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(128): signal "ALU_IN_1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(129): signal "ALU_IN_2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(130): signal "RS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(131): signal "RT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(132): signal "RD" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(133): signal "k16" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(134): signal "DATA_Write2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(135): signal "louD" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(136): signal "RDM_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(137): signal "Endereco_MEM" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(138): signal "MEMparaReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(139): signal "EscreveReg" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(140): signal "REG_Write3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(141): signal "RegDST" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(142): signal "REG_Write3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(143): signal "EnablePC" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(144): signal "is_bgez" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at MIPS_Multiciclo.vhd(145): signal "op_alu" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "reg" for hierarchy "reg:PC"
+Warning (10492): VHDL Process Statement warning at reg.vhd(28): signal "rst" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at reg.vhd(30): signal "enable" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "mux_2" for hierarchy "mux_2:MUX_PC_MEM"
+Info (12128): Elaborating entity "mips_mem" for hierarchy "mips_mem:Memoria"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "mips_mem:Memoria|altsyncram:altsyncram_component"
+Info (12130): Elaborated megafunction instantiation "mips_mem:Memoria|altsyncram:altsyncram_component"
+Info (12133): Instantiated megafunction "mips_mem:Memoria|altsyncram:altsyncram_component" with the following parameter:
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "mem3.mif"
+    Info (12134): Parameter "intended_device_family" = "Cyclone II"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "256"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "widthad_a" = "8"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dmc1.tdf
+    Info (12023): Found entity 1: altsyncram_dmc1
+Info (12128): Elaborating entity "altsyncram_dmc1" for hierarchy "mips_mem:Memoria|altsyncram:altsyncram_component|altsyncram_dmc1:auto_generated"
+Warning (113028): 16 out of 256 addresses are uninitialized. The Quartus II software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported.
+    Warning (113027): Addresses ranging from 26 to 41 are not initialized
+Info (12128): Elaborating entity "regbuf" for hierarchy "regbuf:REG_DATA_MEM"
+Info (12128): Elaborating entity "breg" for hierarchy "breg:Banco_de_Registradores"
+Info (12128): Elaborating entity "extsgn" for hierarchy "extsgn:Extensor_de_Sinal"
+Info (12128): Elaborating entity "mux_4" for hierarchy "mux_4:MUX_B_extsgn_ALU"
+Info (12128): Elaborating entity "alu_ctr" for hierarchy "alu_ctr:COntroladora_ULA"
+Info (12128): Elaborating entity "ulamips" for hierarchy "ulamips:ULA"
+Warning (10492): VHDL Process Statement warning at ulamips.vhd(41): signal "shamt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at ulamips.vhd(42): signal "shamt" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "mips_control" for hierarchy "mips_control:Controladora"
+Warning (10492): VHDL Process Statement warning at mips_control.vhd(101): signal "RT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (276020): Inferred RAM node "breg:Banco_de_Registradores|breg32_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Warning (276020): Inferred RAM node "breg:Banco_de_Registradores|breg32_rtl_1" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "breg:Banco_de_Registradores|breg32_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "breg:Banco_de_Registradores|breg32_rtl_1" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTHAD_A set to 5
+        Info (286033): Parameter NUMWORDS_A set to 32
+        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTHAD_B set to 5
+        Info (286033): Parameter NUMWORDS_B set to 32
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+Info (12130): Elaborated megafunction instantiation "breg:Banco_de_Registradores|altsyncram:breg32_rtl_0"
+Info (12133): Instantiated megafunction "breg:Banco_de_Registradores|altsyncram:breg32_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "5"
+    Info (12134): Parameter "NUMWORDS_A" = "32"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "5"
+    Info (12134): Parameter "NUMWORDS_B" = "32"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_bnd1.tdf
+    Info (12023): Found entity 1: altsyncram_bnd1
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Reg_Write3_teste[5]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[6]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[7]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[8]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[9]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[10]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[11]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[12]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[13]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[14]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[15]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[16]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[17]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[18]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[19]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[20]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[21]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[22]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[23]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[24]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[25]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[26]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[27]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[28]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[29]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[30]" is stuck at GND
+    Warning (13410): Pin "Reg_Write3_teste[31]" is stuck at GND
+    Warning (13410): Pin "is_bgez_teste" is stuck at GND
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1618 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 336 output pins
+    Info (21061): Implemented 1184 logic cells
+    Info (21064): Implemented 96 RAM segments
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 63 warnings
+    Info: Peak virtual memory: 508 megabytes
+    Info: Processing ended: Mon Dec 14 22:00:10 2015
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
+
+

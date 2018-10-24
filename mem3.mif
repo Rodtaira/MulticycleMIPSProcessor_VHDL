@@ -1,0 +1,63 @@
+-- Copyright (C) 1991-2012 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+
+-- Quartus II generated Memory Initialization File (.mif)
+
+WIDTH=32;
+DEPTH=256;
+
+ADDRESS_RADIX=HEX;
+DATA_RADIX=HEX;
+
+CONTENT BEGIN
+
+00: 00000000;
+01: 34081ffe; -- ori $8, $8, 8190
+02: 31081ffd; -- andi $8, $8, 8189
+03: 21080004; -- addi $8, $8, 4
+04: 2009fffe; -- addi $9, $0, -2
+05: 05200003; -- bltz $9, label1
+06: 8d080000; -- lw $8, 0($8)
+07: 8d290000; -- lw $9, 0($9)
+08: 8d4a0000; -- lw $10, 0($10)
+09: 200a0001; -- label1: addi $10, $0, 1
+0A: 290b2328 ; -- slti $11, $8, 9000 
+0B: 8d090000; -- lw $9, 0($8)
+0C: 8d0a0004; -- lw $10, 4($8)
+0D: 8d0b0008; -- lw $11, 8($8)
+0E:	8d0c000c; -- lw $12, 12($8)
+0F:	8d0d0010; -- lw $13, 16($8)
+10: 05600003; -- bltz $11, label2
+11: 2008000c; -- addi $8, $0, 12
+12: 200a0017; -- addi $10, $0, 23
+13: 010a2024; -- and $4, $8, $10
+14: 200f0002; -- label2: addi $15, $0, 2
+15: 352d03e8; -- ori $13, $9, 1000
+16: 01ac7024; -- and $14, $13, $12
+17: 0188782a; -- slt $15, $12, $8
+18: 11a00006; -- beq $13, $0, label3
+19: 20081ffc; -- addi $8, $0, 8188
+2A: 20090001; -- addi $9, $0, 1
+2B: 00094880; -- sll $9, $9, 2
+2C: 000948c2; -- srl $9, $9, 3
+[2D..7F] : 00000000; 
+80: 00000001;
+81: 00000003;
+82: 00000005;
+83: 00000007;
+84: 00000009;
+[85..FF] : 00000000;
+END;
+
+ 

@@ -1,0 +1,26 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\rodtairaunb.RODTAIRA\Desktop\MIPS_Multiciclo\simulation\modelsim
+vMIPS_Multiciclo
+!i10b 1
+!s100 LTHE?nJ]U8ozWNOHF:mCO1
+Im>c2H][j@UHmIQj:oAGF72
+VC5b6hXCbhBz=QYOGA6li91
+Z1 dC:\Users\rodtairaunb.RODTAIRA\Desktop\MIPS_Multiciclo\simulation\modelsim
+w1450129015
+8MIPS_Multiciclo.vo
+FMIPS_Multiciclo.vo
+L0 31
+OV;L;10.1d;51
+r1
+!s85 0
+31
+!s108 1450134305.131000
+!s107 MIPS_Multiciclo.vo|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+.|MIPS_Multiciclo.vo|
+!s101 -O0
+o-vlog01compat -work work -O0
+!s92 -vlog01compat -work work +incdir+. -O0
+n@m@i@p@s_@multiciclo

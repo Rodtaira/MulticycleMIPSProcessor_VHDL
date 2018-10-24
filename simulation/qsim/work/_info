@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\rodtairaunb.RODTAIRA\Desktop\MIPS_Multiciclo\simulation\qsim
+vMIPS_Multiciclo
+Z1 I<cc<b2CY1Q^?B_:7OZL=O0
+Z2 VaE^CC0bC2Hk8AW5MN7Zca0
+Z3 dC:\Users\rodtairaunb.RODTAIRA\Desktop\MIPS_Multiciclo\simulation\qsim
+Z4 w1450137750
+Z5 8MIPS_Multiciclo.vo
+Z6 FMIPS_Multiciclo.vo
+L0 31
+Z7 OV;L;10.1d;51
+r1
+31
+Z8 !s90 -work|work|MIPS_Multiciclo.vo|
+Z9 o-work work -O0
+Z10 n@m@i@p@s_@multiciclo
+!i10b 1
+Z11 !s100 je1lIg]d7_K<7HUZf>Y2L2
+!s85 0
+Z12 !s108 1450137751.044000
+Z13 !s107 MIPS_Multiciclo.vo|
+!s101 -O0
+vMIPS_Multiciclo_vlg_check_tst
+!i10b 1
+Z14 !s100 9Xn@ClaL`f><fIA@6SNcg3
+Z15 ImeA[S=1n1nTQbWeY<Zgnz3
+Z16 VJa=PP2?3fY9Zoh0AHWI@32
+R3
+Z17 w1450137749
+Z18 8MIPS_Multiciclo.vt
+Z19 FMIPS_Multiciclo.vt
+L0 59
+R7
+r1
+!s85 0
+31
+Z20 !s108 1450137751.377000
+Z21 !s107 MIPS_Multiciclo.vt|
+Z22 !s90 -work|work|MIPS_Multiciclo.vt|
+!s101 -O0
+R9
+Z23 n@m@i@p@s_@multiciclo_vlg_check_tst
+vMIPS_Multiciclo_vlg_sample_tst
+!i10b 1
+Z24 !s100 gIL7VU<2K`VH_EXLaXKj30
+Z25 IJ4n3GoERJd4knHG^G8fWo3
+Z26 VHDVzQYYNiKDHj=:<2dSK?0
+R3
+R17
+R18
+R19
+L0 29
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z27 n@m@i@p@s_@multiciclo_vlg_sample_tst
+vMIPS_Multiciclo_vlg_vec_tst
+!i10b 1
+Z28 !s100 n=<1gbD@3UYU7oEAL4YSA1
+Z29 IH?@CPGASheR:]RE0<P@XM2
+Z30 VlML=<d<5Z6PlQ8TKUD@4e1
+R3
+R17
+R18
+R19
+Z31 L0 6487
+R7
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R9
+Z32 n@m@i@p@s_@multiciclo_vlg_vec_tst

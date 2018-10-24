@@ -1,0 +1,513 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\rodtairaunb.RODTAIRA\Desktop\MIPS_Multiciclo\simulation\modelsim
+Ealu_ctr
+Z1 w1450100305
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx4 work 8 mips_pkg 0 22 Qj^Hd[mi^`jMnW<FjA`K=0
+Z4 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z5 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z6 dC:\Users\rodtairaunb.RODTAIRA\Desktop\MIPS_Multiciclo\simulation\modelsim
+Z7 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/alu_ctr.vhd
+Z8 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/alu_ctr.vhd
+l0
+L8
+ViTlibHeW?c]jNKUSc=]S<2
+Z9 OV;C;10.1d;51
+31
+Z10 !s108 1450128392.247000
+Z11 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/alu_ctr.vhd|
+Z12 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/alu_ctr.vhd|
+Z13 o-93 -work work -O0
+Z14 tExplicit 1
+!s100 h>V`HZmNe7FGS1jGAMGLP1
+!i10b 1
+Abehav
+R2
+R3
+R4
+R5
+DEx4 work 7 alu_ctr 0 22 iTlibHeW?c]jNKUSc=]S<2
+l19
+L17
+VPJVXWTmhG^[HU<VI?YZ`d2
+R9
+31
+R10
+R11
+R12
+R13
+R14
+!s100 QjXlN>:<^8B:k_D]?n5Ra3
+!i10b 1
+Ebreg
+Z15 w1390850488
+R2
+R3
+Z16 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z17 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+R4
+R5
+R6
+Z18 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/breg.vhd
+Z19 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/breg.vhd
+l0
+L10
+V@8`bB?R9g4L5C@Ug6HJ?73
+R9
+31
+Z20 !s108 1450128392.138000
+Z21 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/breg.vhd|
+Z22 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/breg.vhd|
+R13
+R14
+!s100 N=AK66V?fY4g4I?5egBI`3
+!i10b 1
+Artl
+R2
+R3
+R16
+R17
+R4
+R5
+DEx4 work 4 breg 0 22 @8`bB?R9g4L5C@Ug6HJ?73
+l32
+L28
+Vm[Yj[aQHEQhbgT]EYoo]?1
+R9
+31
+R20
+R21
+R22
+R13
+R14
+!s100 NWo]LTD1ZnJ4L;2Ij^7[32
+!i10b 1
+Eextsgn
+Z23 w1448560741
+R2
+R3
+R4
+R5
+R6
+Z24 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/extsgn.vhd
+Z25 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/extsgn.vhd
+l0
+L6
+V1_30]<W[89M5bF?h[]^<30
+R9
+31
+Z26 !s108 1450128392.044000
+Z27 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/extsgn.vhd|
+Z28 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/extsgn.vhd|
+R13
+R14
+!s100 lSdlYLoe<L?<7AnFBaMT=3
+!i10b 1
+Aextsgn_arch
+R2
+R3
+R4
+R5
+DEx4 work 6 extsgn 0 22 1_30]<W[89M5bF?h[]^<30
+l19
+L17
+V6fOh?9SI@[]k=c2JLN7g`2
+R9
+31
+R26
+R27
+R28
+R13
+R14
+!s100 _gcLQo`bV11GbJGgJB04E0
+!i10b 1
+Emips_control
+Z29 w1450125427
+R2
+R3
+R4
+R5
+R6
+Z30 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_control.vhd
+Z31 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_control.vhd
+l0
+L5
+V8BUQAU=94]n12]lUB:0=90
+R9
+31
+Z32 !s108 1450128391.950000
+Z33 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_control.vhd|
+Z34 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_control.vhd|
+R13
+R14
+!s100 fUiUAIMHLa;0^dQ0`UK^L2
+!i10b 1
+Acontrol_op
+R2
+R3
+R4
+R5
+DEx4 work 12 mips_control 0 22 8BUQAU=94]n12]lUB:0=90
+l38
+L32
+VN]MN16L;_JlhX?^BjiO?_1
+R9
+31
+R32
+R33
+R34
+R13
+R14
+!s100 U6Gf4AOc7Y]<`B16dRYJb1
+!i10b 1
+Emips_mem
+Z35 w1450108062
+Z36 DPx9 altera_mf 20 altera_mf_components 0 22 No]@D`cShSLI4UOb8Ijo62
+R3
+R2
+R4
+R5
+R6
+Z37 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_mem.vhd
+Z38 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_mem.vhd
+l0
+L12
+VO@SdERni9?Y^U]HOf7dC:1
+R9
+31
+Z39 !s108 1450128391.747000
+Z40 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_mem.vhd|
+Z41 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_mem.vhd|
+R13
+R14
+!s100 07?NJ;z_:YCIC@5R`i1mQ1
+!i10b 1
+Artl
+R36
+R3
+R2
+R4
+R5
+DEx4 work 8 mips_mem 0 22 O@SdERni9?Y^U]HOf7dC:1
+l64
+L24
+VH@n]iMa1g>K6Vali:cV]32
+R9
+31
+R39
+R40
+R41
+R13
+R14
+!s100 ;k>1I:5F`>UPm18f[Hdd42
+!i10b 1
+Emips_multiciclo
+Z42 w1450127400
+R3
+R2
+R4
+R5
+R6
+Z43 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/MIPS_Multiciclo.vhd
+Z44 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/MIPS_Multiciclo.vhd
+l0
+L11
+V?7zYDX=_1XB:]OKfGjkoh1
+R9
+31
+Z45 !s108 1450128392.325000
+Z46 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/MIPS_Multiciclo.vhd|
+Z47 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/MIPS_Multiciclo.vhd|
+R13
+R14
+!s100 :GzjPa?jRf0N<9jgOn4On2
+!i10b 1
+Amips_multiciclo_arch
+R3
+R2
+R4
+R5
+DEx4 work 15 mips_multiciclo 0 22 ?7zYDX=_1XB:]OKfGjkoh1
+l48
+L26
+VVHh=YXU>:GbZ^2;lVkE7]1
+R9
+31
+R45
+R46
+R47
+R13
+R14
+!s100 k[Q;o6A5`RKVHC@`R51a?2
+!i10b 1
+Emips_multiciclo_vhd_tst
+Z48 w1449841106
+R4
+R5
+R6
+Z49 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/simulation/modelsim/MIPS_Multiciclo_vhd_tst.vhd
+Z50 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/simulation/modelsim/MIPS_Multiciclo_vhd_tst.vhd
+l0
+L30
+V_1a9RI_o?7]o035^nQ<m]2
+!s100 f<33hdc]`4S0];aai;eSM3
+R9
+31
+!i10b 1
+Z51 !s108 1450128392.497000
+Z52 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/simulation/modelsim/MIPS_Multiciclo_vhd_tst.vhd|
+Z53 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/simulation/modelsim/MIPS_Multiciclo_vhd_tst.vhd|
+R13
+R14
+Amips_multiciclo_arch
+R4
+R5
+DEx4 work 23 mips_multiciclo_vhd_tst 0 22 _1a9RI_o?7]o035^nQ<m]2
+l81
+L32
+VA_3^7AS;5J`n[h`n4OTz;1
+!s100 L_XFJWIFjB:HhJXAm=cSS0
+R9
+31
+!i10b 1
+R51
+R52
+R53
+R13
+R14
+Pmips_pkg
+R2
+R4
+R5
+Z54 w1450124859
+R6
+Z55 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_pkg.vhd
+Z56 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_pkg.vhd
+l0
+L6
+VQj^Hd[mi^`jMnW<FjA`K=0
+R9
+31
+Z57 !s108 1450128391.200000
+Z58 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_pkg.vhd|
+Z59 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mips_pkg.vhd|
+R13
+R14
+!s100 AO6K3<mUFhdI2E0kP=::03
+!i10b 1
+Bbody
+R3
+R2
+R4
+R5
+l0
+L285
+VjHjkP2zVYhJ7i:?`Bf?Q80
+R9
+31
+R57
+R58
+R59
+R13
+R14
+nbody
+!s100 bnRkaGf1B6?gn7N31`Pd?1
+!i10b 1
+Emux_2
+Z60 w1448727655
+R3
+R2
+R16
+Z61 DPx4 ieee 16 std_logic_signed 0 22 E>OLoMaBGQ?hbGgOoNXM^1
+R4
+R5
+R6
+Z62 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_2.vhd
+Z63 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_2.vhd
+l0
+L7
+VnNk2g[V^K;KXQ?:]Hg^hm2
+R9
+31
+Z64 !s108 1450128391.638000
+Z65 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_2.vhd|
+Z66 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_2.vhd|
+R13
+R14
+!s100 ]OJSOj04G8bz_HHZCQJj32
+!i10b 1
+Artl
+R3
+R2
+R16
+R61
+R4
+R5
+DEx4 work 5 mux_2 0 22 nNk2g[V^K;KXQ?:]Hg^hm2
+l17
+L16
+VeShBG@FzQc0:GjFD]2Z001
+R9
+31
+R64
+R65
+R66
+R13
+R14
+!s100 _Km>z[SEJVi9731R6QH1i3
+!i10b 1
+Emux_4
+Z67 w1448727654
+R3
+R2
+R16
+R61
+R4
+R5
+R6
+Z68 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_4.vhd
+Z69 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_4.vhd
+l0
+L7
+V:kb>GS7?]Q7PBnOa_=3eQ1
+R9
+31
+Z70 !s108 1450128391.528000
+Z71 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_4.vhd|
+Z72 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/mux_4.vhd|
+R13
+R14
+!s100 MmQVY=CDX5PM5Sn`2;`De2
+!i10b 1
+Artl
+R3
+R2
+R16
+R61
+R4
+R5
+DEx4 work 5 mux_4 0 22 :kb>GS7?]Q7PBnOa_=3eQ1
+l18
+L17
+VS002UVOF6>F=DLE=l;@Y72
+R9
+31
+R70
+R71
+R72
+R13
+R14
+!s100 bVVkS:PY]>zHM9YSeom@42
+!i10b 1
+Ereg
+Z73 w1449836263
+R4
+R5
+R6
+Z74 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/reg.vhd
+Z75 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/reg.vhd
+l0
+L7
+V=M[ABcRJOEGR;Bk2YdQ=C3
+R9
+31
+Z76 !s108 1450128391.106000
+Z77 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/reg.vhd|
+Z78 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/reg.vhd|
+R13
+R14
+!s100 VzGUjc>85]Tl_V^;DRB]42
+!i10b 1
+Artl
+R4
+R5
+DEx4 work 3 reg 0 22 =M[ABcRJOEGR;Bk2YdQ=C3
+l25
+L21
+VX0ZC>MWLe8OGbML>EF2>J0
+R9
+31
+R76
+R77
+R78
+R13
+R14
+!s100 797B2c`]ToRN6U8>PDMkg3
+!i10b 1
+Eregbuf
+Z79 w1375058238
+R4
+R5
+R6
+Z80 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/regbuf.vhd
+Z81 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/regbuf.vhd
+l0
+L7
+V<YlF2G;hj=P5B33heZJQR3
+R9
+31
+Z82 !s108 1450128391.013000
+Z83 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/regbuf.vhd|
+Z84 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/regbuf.vhd|
+R13
+R14
+!s100 4C6SegQn=jTK3[3EB`?oA1
+!i10b 1
+Artl
+R4
+R5
+DEx4 work 6 regbuf 0 22 <YlF2G;hj=P5B33heZJQR3
+l20
+L19
+V><K:O9C;i7<RGfcUOdDdW1
+R9
+31
+R82
+R83
+R84
+R13
+R14
+!s100 dU0zZFiXlE=gIaOd@PWTE1
+!i10b 1
+Eulamips
+Z85 w1450121711
+R3
+R2
+R4
+R5
+R6
+Z86 8C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/ulamips.vhd
+Z87 FC:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/ulamips.vhd
+l0
+L6
+V=8DREmlMPIC@?2b`:bP922
+R9
+31
+Z88 !s108 1450128391.419000
+Z89 !s90 -reportprogress|300|-93|-work|work|C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/ulamips.vhd|
+Z90 !s107 C:/Users/rodtairaunb.RODTAIRA/Desktop/MIPS_Multiciclo/ulamips.vhd|
+R13
+R14
+!s100 V2ZCJlAPZKKF36`;2i_Lm2
+!i10b 1
+Abehavioral
+R3
+R2
+R4
+R5
+DEx4 work 7 ulamips 0 22 =8DREmlMPIC@?2b`:bP922
+l24
+L19
+V]9d=T@kVEl85L_K:Q8mXF2
+R9
+31
+R88
+R89
+R90
+R13
+R14
+!s100 UP_OQ>ITd23^28cJK7dXL3
+!i10b 1

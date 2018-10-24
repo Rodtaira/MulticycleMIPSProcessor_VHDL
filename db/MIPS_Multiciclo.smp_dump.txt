@@ -1,0 +1,15 @@
+
+State Machine - |MIPS_Multiciclo|mips_control:Controladora|pstate
+Name pstate.imm_st2 pstate.imm_st1 pstate.jump_ex_st pstate.branch_ex_st pstate.writereg_st pstate.rtype_ex_st pstate.writemem_st pstate.ldreg_st pstate.readmem_st pstate.c_mem_add_st pstate.decode_st pstate.fetch_st 
+pstate.fetch_st 0 0 0 0 0 0 0 0 0 0 0 0 
+pstate.decode_st 0 0 0 0 0 0 0 0 0 0 1 1 
+pstate.c_mem_add_st 0 0 0 0 0 0 0 0 0 1 0 1 
+pstate.readmem_st 0 0 0 0 0 0 0 0 1 0 0 1 
+pstate.ldreg_st 0 0 0 0 0 0 0 1 0 0 0 1 
+pstate.writemem_st 0 0 0 0 0 0 1 0 0 0 0 1 
+pstate.rtype_ex_st 0 0 0 0 0 1 0 0 0 0 0 1 
+pstate.writereg_st 0 0 0 0 1 0 0 0 0 0 0 1 
+pstate.branch_ex_st 0 0 0 1 0 0 0 0 0 0 0 1 
+pstate.jump_ex_st 0 0 1 0 0 0 0 0 0 0 0 1 
+pstate.imm_st1 0 1 0 0 0 0 0 0 0 0 0 1 
+pstate.imm_st2 1 0 0 0 0 0 0 0 0 0 0 1 

@@ -1,0 +1,155 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 16 16 216 320)
+	(text "contr_MEF" (rect 5 0 52 12)(font "Arial" ))
+	(text "inst" (rect 8 288 20 300)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "Op[5..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "Op[5..0]" (rect 21 27 52 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "S[3..0]" (rect 0 0 25 12)(font "Arial" ))
+		(text "S[3..0]" (rect 21 43 46 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 200 32)
+		(output)
+		(text "EscrevePC" (rect 0 0 48 12)(font "Arial" ))
+		(text "EscrevePC" (rect 131 27 179 39)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32)(line_width 1))
+	)
+	(port
+		(pt 200 48)
+		(output)
+		(text "EscrevePCCond" (rect 0 0 69 12)(font "Arial" ))
+		(text "EscrevePCCond" (rect 110 43 179 55)(font "Arial" ))
+		(line (pt 200 48)(pt 184 48)(line_width 1))
+	)
+	(port
+		(pt 200 64)
+		(output)
+		(text "IouD" (rect 0 0 18 12)(font "Arial" ))
+		(text "IouD" (rect 161 59 179 71)(font "Arial" ))
+		(line (pt 200 64)(pt 184 64)(line_width 1))
+	)
+	(port
+		(pt 200 80)
+		(output)
+		(text "LeMem" (rect 0 0 31 12)(font "Arial" ))
+		(text "LeMem" (rect 148 75 179 87)(font "Arial" ))
+		(line (pt 200 80)(pt 184 80)(line_width 1))
+	)
+	(port
+		(pt 200 96)
+		(output)
+		(text "EscreveMem" (rect 0 0 56 12)(font "Arial" ))
+		(text "EscreveMem" (rect 123 91 179 103)(font "Arial" ))
+		(line (pt 200 96)(pt 184 96)(line_width 1))
+	)
+	(port
+		(pt 200 112)
+		(output)
+		(text "MemparaReg" (rect 0 0 56 12)(font "Arial" ))
+		(text "MemparaReg" (rect 123 107 179 119)(font "Arial" ))
+		(line (pt 200 112)(pt 184 112)(line_width 1))
+	)
+	(port
+		(pt 200 128)
+		(output)
+		(text "EscreveIR" (rect 0 0 46 12)(font "Arial" ))
+		(text "EscreveIR" (rect 133 123 179 135)(font "Arial" ))
+		(line (pt 200 128)(pt 184 128)(line_width 1))
+	)
+	(port
+		(pt 200 144)
+		(output)
+		(text "OrigAALU" (rect 0 0 46 12)(font "Arial" ))
+		(text "OrigAALU" (rect 133 139 179 151)(font "Arial" ))
+		(line (pt 200 144)(pt 184 144)(line_width 1))
+	)
+	(port
+		(pt 200 160)
+		(output)
+		(text "EscreveReg" (rect 0 0 53 12)(font "Arial" ))
+		(text "EscreveReg" (rect 126 155 179 167)(font "Arial" ))
+		(line (pt 200 160)(pt 184 160)(line_width 1))
+	)
+	(port
+		(pt 200 176)
+		(output)
+		(text "RegDst" (rect 0 0 31 12)(font "Arial" ))
+		(text "RegDst" (rect 148 171 179 183)(font "Arial" ))
+		(line (pt 200 176)(pt 184 176)(line_width 1))
+	)
+	(port
+		(pt 200 192)
+		(output)
+		(text "BNE" (rect 0 0 20 12)(font "Arial" ))
+		(text "BNE" (rect 159 187 179 199)(font "Arial" ))
+		(line (pt 200 192)(pt 184 192)(line_width 1))
+	)
+	(port
+		(pt 200 208)
+		(output)
+		(text "LUI" (rect 0 0 15 12)(font "Arial" ))
+		(text "LUI" (rect 164 203 179 215)(font "Arial" ))
+		(line (pt 200 208)(pt 184 208)(line_width 1))
+	)
+	(port
+		(pt 200 224)
+		(output)
+		(text "NS[3..0]" (rect 0 0 33 12)(font "Arial" ))
+		(text "NS[3..0]" (rect 146 219 179 231)(font "Arial" ))
+		(line (pt 200 224)(pt 184 224)(line_width 3))
+	)
+	(port
+		(pt 200 240)
+		(output)
+		(text "OpALU[1..0]" (rect 0 0 51 12)(font "Arial" ))
+		(text "OpALU[1..0]" (rect 128 235 179 247)(font "Arial" ))
+		(line (pt 200 240)(pt 184 240)(line_width 3))
+	)
+	(port
+		(pt 200 256)
+		(output)
+		(text "OrigBALU[1..0]" (rect 0 0 62 12)(font "Arial" ))
+		(text "OrigBALU[1..0]" (rect 117 251 179 263)(font "Arial" ))
+		(line (pt 200 256)(pt 184 256)(line_width 3))
+	)
+	(port
+		(pt 200 272)
+		(output)
+		(text "OrigPc[1..0]" (rect 0 0 46 12)(font "Arial" ))
+		(text "OrigPc[1..0]" (rect 133 267 179 279)(font "Arial" ))
+		(line (pt 200 272)(pt 184 272)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 288)(line_width 1))
+	)
+)
